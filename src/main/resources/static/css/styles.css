@@ -1,0 +1,379 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
+}
+
+.logo {
+    max-width: 130px; /* Ajusta este valor según el tamaño que desees */
+    height: auto; /* Mantiene la proporción original de la imagen */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Global Styles */
+h1 {
+  font-size: 50px;
+  line-height: 64px;
+  color: #222;
+}
+
+h2 {
+  font-size: 46px;
+  line-height: 54px;
+  color: #088178;
+}
+
+h4 {
+  font-size: 20px;
+  color: #222;
+}
+
+h6 {
+  font-weight: 700;
+  font-size: 12px;
+}
+
+p {
+  font-size: 16px;
+  color: #465b52;
+  margin: 15px 0 20px 0;
+}
+
+.section-p1 {
+  padding: 40px 80px;
+}
+
+.section-m1 {
+  margin: 40px 0;
+}
+
+button.normal {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 15px 30px;
+  color: #000;
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: 0.2s;
+}
+
+button.white {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 11px 18px;
+  color: black;
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid black;
+  outline: none;
+  transition: 0.2s;
+}
+
+body {
+
+  background-image: url('https://estaticos-cdn.prensaiberica.es/clip/741e68e5-b160-4ce4-86a1-aaa9f3ccce1e_16-9-discover-aspect-ratio_default_0.jpg'); /* Imagen de fondo */
+  background-size: cover; /* Cubre todo el fondo */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */
+  animation: backgroundAnimation 3s ease-in-out infinite alternate; /* Animación de fondo */
+  margin: 0; /* Elimina el margen que podría estar cubriendo el fondo */
+}
+
+/* Animación para el fondo */
+@keyframes backgroundAnimation {
+  0% {
+    background-position: center top;
+  }
+  100% {
+    background-position: center bottom;
+  }
+}
+
+/* Comienzo del encabezado */
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 80px;
+  background: transparent; /* Transparente para que se vea el fondo */
+  box-shadow: none; /* Sin sombra */
+  z-index: 999;
+  position: sticky;
+  top: 0;
+  left: 0;
+  animation: fadeIn 1s; /* Añadido efecto de animación */
+}
+
+/* Ajustes del navbar */
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto; /* Centra el navbar en la pantalla */
+  padding: 0 20px; /* Añadir algo de espacio de relleno */
+}
+
+#navbar li {
+  list-style: none;
+  padding: 0 20px;
+  position: relative;
+}
+
+#navbar li a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  transition: 0.3s ease;
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+  color: #088178;
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+  content: "";
+  width: 30%;
+  height: 2px;
+  background: #088178;
+  position: absolute;
+  bottom: -4px;
+  left: 20px;
+}
+
+
+/* Página de inicio */
+#hero {
+  height: 80vh;
+  width: 100%;
+  padding: 0 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+#hero-auth {
+  height: 80vh;
+  width: 100%;
+  padding: 0 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+#hero-auth h1 {
+  font-size: 50px;
+  line-height: 64px;
+  color: #088178;;
+}
+
+#hero-auth h2 {
+	font-size: 46px;
+	line-height: 54px;
+	color: #088178;
+}
+
+#hero-auth h4 {
+	font-size: 20px;
+	color: #222;
+}
+
+#hero-auth h6 {
+  font-weight: 700;
+  font-size: 12px;
+}
+
+#hero-auth p {
+	font-size: 16px;
+	color: #465b52;
+	margin: 15px 0 20px 0;
+}
+
+#hero-auth button {
+  background-image: url("https://github.com/tech2etc/Build-and-Deploy-Ecommerce-Website/blob/main/img/button.png?raw=true");
+  background-color: transparent;
+  color: #088178;
+  border: 0;
+  padding: 14px 80px 14px 65px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+
+#categories {
+  background: transparent; 
+}
+
+#hero h4 {
+  padding-bottom: 15px;
+}
+
+#hero h2 {
+  color: #088178;
+}
+
+
+#hero button {
+  background-image: url("https://github.com/tech2etc/Build-and-Deploy-Ecommerce-Website/blob/main/img/button.png?raw=true");
+  background-color: transparent;
+  color: #088178;
+  border: 0;
+  padding: 14px 80px 14px 65px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#hero h2 {
+  animation: slideIn 1s ease forwards;
+}
+
+#hero button {
+  animation: slideIn 1s ease forwards;
+}
+
+#hero {
+  overflow: hidden;
+}
+
+/* Estilos generales para los botones */
+.btn {
+  font-weight: bold;
+  padding: 8px 15px; /* Hacemos los botones más pequeños */
+  transition: background-color 0.3s, color 0.3s;
+  margin-right: 10px; /* Añadimos un espacio entre los botones */
+  animation: fadeInText 1s ease-in-out;
+  animation-delay: 0.4s; /* Retraso para que los botones aparezcan después */
+}
+
+/* Estilo para el botón Iniciar sesión */
+.btn-login {
+  background-color: #fff; /* Fondo blanco */
+  border: 2px solid #088178; /* Borde del mismo color que al pasar el mouse */
+  color: #088178; /* Color de texto igual al borde */
+}
+
+.btn-login:hover {
+  background-color: #088178; /* Color de fondo al pasar el mouse */
+  color: white; /* Color del texto al pasar el mouse */
+}
+
+.btn-login:focus {
+  outline: none;
+}
+
+/* Estilo para el botón Registro */
+.btn-register {
+  background-color: #fff; /* Fondo blanco */
+  border: 2px solid #088178; /* Borde del mismo color que al pasar el mouse */
+  color: #088178; /* Color de texto igual al borde */
+}
+
+.btn-register:hover {
+  background-color: #088178; /* Color de fondo al pasar el mouse */
+  color: white; /* Color del texto al pasar el mouse */
+}
+
+/* Estilo para el botón Cancelar */
+.btn-cancel {
+  background-color: #f8d7da; /* Un color de fondo más claro para cancelar */
+  border: none;
+}
+
+.btn-cancel:hover {
+  background-color: #f1b0b7;
+}
+
+/* Estilo para el botón de cerrar sesión */
+.btn-danger {
+  background-color: #dc3545; /* Color de fondo rojo */
+  border: none; /* Sin borde */
+  color: white; /* Color del texto blanco */
+  padding: 10px 20px; /* Espaciado interno del botón */
+  font-size: 14px; /* Tamaño de la fuente */
+  font-weight: 600; /* Peso de la fuente */
+  border-radius: 4px; /* Bordes redondeados */
+  cursor: pointer; /* El cursor será tipo mano */
+  transition: transform 0.2s ease-in-out, background-color 0.3s; /* Efecto de transición */
+}
+
+/* Efecto al pasar el mouse */
+.btn-danger:hover {
+  transform: scale(1.1); /* Aumentar ligeramente el tamaño del botón */
+  background-color: #c82333; /* Color de fondo rojo más oscuro al pasar el mouse */
+}
+
+/* Estilo de texto de error */
+.text-danger {
+  font-size: 0.875rem;
+  color: #dc3545;
+  margin-top: 5px;
+  animation: fadeInText 1s ease-in-out;
+  animation-delay: 0.6s; /* Retraso para que el texto de error aparezca después */
+}
+
+/* Alineación de los botones de sesión en fila */
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alinea los botones a la izquierda */
+  margin-left: 30px; /* Añadimos más margen para mover los botones a la derecha */
+}
+
+/* Los botones estarán alineados en fila */
+.auth-buttons .btn {
+  width: auto; /* Los botones no ocuparán todo el ancho */
+  margin-right: 10px; /* Espaciado entre los botones */
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .auth-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: auto; /* Los botones no ocuparán todo el ancho en pantallas pequeñas */
+    margin-bottom: 10px; /* Espacio entre botones */
+    padding: 8px 16px; /* Ajustamos el tamaño de los botones */
+    font-size: 14px; /* Ajustamos el tamaño del texto */
+  }
+}

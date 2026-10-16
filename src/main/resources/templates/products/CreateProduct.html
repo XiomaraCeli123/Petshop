@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title th:text="#{form.title}">PetShop</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" href="/css/stylesCreate.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- Font Awesome -->
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 mx-auto rounded border p-4 m-4">
+				<h2 class="text-center mb-5" th:text="#{form.title}">Nuevo
+					Producto</h2>	
+					<div class="language-switcher" style="text-align: right; margin: 10px;">
+					    <a href="?lang=es" class="language-link">Español</a> | 
+					    <a href="?lang=en" class="language-link">English</a> | 
+					    <a href="?lang=fr" class="language-link">Français</a>
+					</div>
+
+					<!-- Estilo de los enlaces -->
+					<style>
+					    .language-switcher a {
+					        text-decoration: none; 
+					        font-size: 16px; 
+					        color: #088178; 
+					        padding: 5px 10px; 
+					        margin: 0 5px; 
+					        border-radius: 5px; 
+					        transition: transform 0.3s, font-size 0.3s;
+					    }
+
+					    /* Efecto de hover: agrandar el enlace */
+					    .language-switcher a:hover {
+					        transform: scale(1.1); /* Agranda el botón al pasar el mouse */
+					        font-size: 18px; /* Aumenta el tamaño de la fuente */
+					    }
+					</style>
+				
+				<form method="post" enctype="multipart/form-data"
+					th:object="${productDto}">
+					<div class="row mb-3">
+						<label class="col-sm-4 col-form-label" th:text="#{form.name}">Nombre</label>
+						<div class="col-sm-8">
+							<input class="form-control campo-input"
+								th:field="${productDto.name}">
+							<!-- clase "campo-input" añadida -->
+							<p th:if="${#fields.hasErrors('name')}" class="text-danger"
+								th:errors="${productDto.name}"></p>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<label class="col-sm-4 col-form-label" th:text="#{form.brand}">Marca</label>
+						<div class="col-sm-8">
+							<input class="form-control campo-input"
+								th:field="${productDto.brand}">
+							<!-- clase "campo-input" añadida -->
+							<p th:if="${#fields.hasErrors('brand')}" class="text-danger"
+								th:errors="${productDto.brand}"></p>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<label class="col-sm-4 col-form-label" th:text="#{form.category}">Categoría</label>
+						<div class="col-sm-8">
+							<select class="form-select campo-input"
+								th:field="${productDto.category}">
+								<!-- clase "campo-input" añadida -->
+								<option value='Perro' th:text="#{form.category.options.dog}">Alimentos
+									para perro</option>
+								<option value='Gato' th:text="#{form.category.options.cat}">Alimentos
+									para gato</option>
+								<option value='Conejo' th:text="#{form.category.options.rabbit}">Alimentos
+									para conejo</option>
+								<option value='Loro' th:text="#{form.category.options.parrot}">Alimentos
+									para loro</option>
+								<option value='Otros' th:text="#{form.category.options.others}">Otros</option>
+							</select>
+							<p th:if="${#fields.hasErrors('category')}" class="text-danger"
+								th:errors="${productDto.category}"></p>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<label class="col-sm-4 col-form-label" th:text="#{form.price}">Precio</label>
+						<div class="col-sm-8">
+							<input class="form-control campo-input" type="number" step="0.01"
+								min="0" th:field="${productDto.price}">
+							<!-- clase "campo-input" añadida -->
+							<p th:if="${#fields.hasErrors('price')}" class="text-danger"
+								th:errors="${productDto.price}"></p>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<label class="col-sm-4 col-form-label"
+							th:text="#{form.description}">Descripción</label>
+						<div class="col-sm-8">
+							<textarea class="form-control campo-input"
+								th:field="${productDto.description}"></textarea>
+							<!-- clase "campo-input" añadida -->
+							<p th:if="${#fields.hasErrors('description')}"
+								class="text-danger" th:errors="${productDto.description}"></p>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<label class="col-sm-4 col-form-label" th:text="#{form.image}">Imagen</label>
+						<div class="col-sm-8">
+							<input class="form-control campo-input" type="file"
+								th:field="${productDto.imageFile}">
+							<!-- clase "campo-input" añadida -->
+							<p th:if="${#fields.hasErrors('imageFile')}" class="text-danger"
+								th:errors="${productDto.imageFile}"></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="offset-sm-4 col-sm-4 d-grid">
+							<button type="submit" class="btn btn-primary">
+								<i class="fas fa-save"></i> <span th:text="#{form.save}">Guardar</span>
+							</button>
+						</div>
+						<div class="col-sm-4 d-grid">
+							<a class="btn btn-outline-primary" href="/products" role="button">
+								<i class="fas fa-arrow-left"></i> <span th:text="#{form.cancel}">Cancelar</span>
+							</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

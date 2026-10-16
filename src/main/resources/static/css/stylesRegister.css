@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Spartan", sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://img.freepik.com/fotos-premium/botella-perfume-blanco-hojas-verdes-fondo-blanco_281348-9462.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: backgroundAnimation 3s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-position: center top;
+    }
+    100% {
+        background-position: center bottom;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Fondo del formulario más ancho, menos transparente */
+/* Fondo del formulario más ancho, menos transparente */
+.form-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo más visible */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px 60px; /* Más padding horizontal */
+    border-radius: 10px;
+    width: 100%;
+    max-width: 1200px; /* Hacemos el fondo más ancho */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    min-height: 350px; /* Ajustamos la altura mínima */
+    border-radius: 12px; /* Bordes más suaves */
+    opacity: 0;
+    animation: fadeInUp 0.7s forwards 0.3s; /* Animación más rápida */
+}
+
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hacemos el formulario más ancho */
+.form-container {
+    width: 80%; /* Ancho más grande para el formulario */
+    max-width: 1200px; /* Máximo ancho más amplio */
+    min-width: 600px; /* Ancho mínimo para no hacerse demasiado estrecho */
+}
+
+/* Animación de entrada para el título */
+h2 {
+    font-size: 36px;
+    color: #088178;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeInText 1s ease-in-out;
+}
+
+/* Animación para los textos (fade-in) */
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h2 {
+    animation: fadeInText 1s ease-in-out forwards;
+}
+
+/* Ajustamos los campos de contraseña y confirmación para que sean más largos */
+input[type="password"] {
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    max-width: 400px; /* Reducido el ancho del campo */
+    margin-bottom: 20px; /* Espaciado como los otros campos */
+    padding: 12px 15px; /* Mismo padding */
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    height: 40px; /* Mismo alto que los otros campos */
+    opacity: 0;
+	animation: fadeInUp 0.5s forwards 0.3s; /* Animación más rápida con un pequeño retraso */
+}
+
+input[type="password"]:focus {
+    border-color: #80bdff;
+    outline: none;
+}
+
+/* Ajustamos los inputs */
+.campo-input {
+    width: 100%;
+    max-width: 500px; /* Inputs más anchos */
+    margin-bottom: 20px;
+    padding: 12px 15px; /* Menos padding para mayor altura */
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    height: 40px; /* Ajusté la altura */
+    opacity: 0;
+	animation: fadeInUp 0.5s forwards 0.3s; /* Animación más rápida con un pequeño retraso */
+}
+
+.campo-input:focus {
+    border-color: #80bdff;
+    outline: none;
+}
+
+/* Ajustamos los botones para que sean más pequeños y horizontales */
+.btn {
+    width: auto; /* Cambiamos de 100% a auto para el tamaño más pequeño */
+    padding: 8px 20px; /* Reducimos el padding para hacer los botones más pequeños */
+    font-size: 14px; /* Fuente más pequeña */
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Efecto al pasar el mouse */
+    margin-bottom: 5px; /* Reducimos el margen entre los botones */
+}
+
+/* Botón enviar */
+.btn-primary {
+    background-color: #088178;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #066c68;
+    transform: scale(1.1); /* Agranda el botón al pasar el mouse */
+}
+
+/* Botón cancelar */
+.btn-outline-primary {
+    color: #088178;
+    border: 2px solid #088178;
+}
+
+.btn-outline-primary:hover {
+    background-color: #088178;
+    color: #ffffff;
+    transform: scale(1.1); /* Efecto al pasar el mouse */
+}
+
+/* Alineamos los botones horizontalmente y los hacemos más pequeños */
+.row.mb-3 {
+    display: flex;
+    justify-content: space-between; /* Espacio entre los botones, más pequeño */
+    align-items: center;
+    opacity: 0;
+    animation: fadeInUp 1s forwards 1.3s; /* Animación para los botones */
+}
+
+.col-sm-4.d-grid {
+    display: flex;
+    justify-content: space-between; /* Alineación horizontal */
+}
+
+.btn-cancel {
+    background-color: #f8d7da; /* Color para el botón Cancelar */
+    border: none;
+}
+
+.btn-cancel:hover {
+    background-color: #f1b0b7;
+    transform: scale(1.1); /* Efecto al pasar el mouse */
+}
+
+/* Ajuste para los campos de contraseña en dispositivos pequeños */
+@media (max-width: 768px) {
+    .btn {
+        padding: 8px 15px; /* Botones más pequeños */
+        font-size: 14px;
+    }
+    
+    .row.mb-3 {
+        flex-direction: column; /* Los botones se alinean uno debajo del otro en pantallas pequeñas */
+    }
+    
+    .col-sm-4.d-grid {
+        flex-direction: column;
+        gap: 5px; /* Reducimos el espacio entre los botones */
+    }
+}
+

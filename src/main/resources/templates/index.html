@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetShop</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <header>
+
+		<!-- Idiomas (Botones para cambiar el idioma) -->
+		<div class="language-switcher" style="text-align: right; margin: 10px;">
+		    <a href="?lang=es" class="language-link">Español</a> | 
+		    <a href="?lang=en" class="language-link">English</a> | 
+		    <a href="?lang=fr" class="language-link">Français</a>
+		</div>
+
+		<!-- Estilo de los enlaces -->
+		<style>
+		    .language-switcher a {
+		        text-decoration: none; 
+		        font-size: 16px; 
+		        color: #088178; 
+		        padding: 5px 10px; 
+		        margin: 0 5px; 
+		        border-radius: 5px; 
+		        transition: transform 0.3s, font-size 0.3s;
+		    }
+
+		    /* Efecto de hover: agrandar el enlace */
+		    .language-switcher a:hover {
+		        transform: scale(1.1); /* Agranda el botón al pasar el mouse */
+		        font-size: 18px; /* Aumenta el tamaño de la fuente */
+		    }
+		</style>
+
+
+        <!-- Menú visible solo para usuarios no autenticados -->
+        <div th:if="${!isAuthenticated}">
+            <section id="header">
+                <img src="/images/logo.png" class="logo" alt="Logo">
+                <div>
+                    <ul id="navbar" class="d-flex justify-content-center">
+                        <li><a class="active" href="/" th:text="#{menu.home}">Inicio</a></li>
+                        <li><a href="/products" th:text="#{menu.products}">Productos</a></li>
+                        <li><a href="/novedades" th:text="#{menu.novedades}"><i class="far fa-shopping-bag"></i>Novedades</a></li>
+                    </ul>
+                </div>
+
+                <!-- Botones de Iniciar sesión y Registrarse a la derecha -->
+                <div class="auth-buttons d-flex">
+                    <a href="/register" class="btn btn-register me-2"><i class="fas fa-user-plus"></i> <span th:text="#{auth.register}">Registro</span></a>
+                    <a href="/login" class="btn btn-login"><i class="fas fa-sign-in-alt"></i> <span th:text="#{auth.login}">Iniciar sesión</span></a>
+                </div>
+            </section>
+        </div>
+
+        <!-- Menú visible solo para usuarios autenticados -->
+        <div th:if="${isAuthenticated}">
+            <section id="header" class="authenticated-header">
+                <img src="/images/logo.png" class="logo" alt="Logo">
+                <div>
+                    <ul id="navbar" class="d-flex justify-content-center">
+                        <li><a class="active" href="/" th:text="#{menu.home}">Inicio</a></li>
+                        <li><a href="/products" th:text="#{menu.products}">Productos</a></li>
+                        <li><a href="/novedades.html" th:text="#{menu.novedades}"><i class="far fa-shopping-bag"></i>Novedades</a></li>
+                    </ul>
+                </div>
+
+                <!-- Botón de Cerrar sesión -->
+                <ul class="navbar-nav me-3" style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="nav-item">
+                        <form th:action="@{/logout}" method="post" class="d-inline">
+                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </header>
+
+    <!-- Sección Hero visible solo para usuarios no autenticados -->
+	
+	<section id="hero" class="fade-in" th:if="${!isAuthenticated}">
+	    <h4 th:text="#{hero.title}">Amar a tus engreídos te permite mejorar este mundo.</h4>
+	    <h2 th:text="#{hero.subtitle1}">Descubre atractivos</h2>
+	    <h2 th:text="#{hero.subtitle2}">descuentos por el día</h2>
+	    <h2 th:text="#{hero.subtitle3}">de la mascota en productos</h2>
+	    <p th:text="#{hero.promotion}">Desde 10% Off Hasta 30% Off Productos Seleccionados!</p>
+	    <button onclick="location.href='/products'" th:text="#{hero.button}">Registrate</button>
+	</section>
+
+    <!-- Sección Hero visible solo para usuarios autenticados -->
+    <section id="hero-auth" class="fade-in authenticated" th:if="${isAuthenticated}">
+        <h4 th:text="#{auth.hero.title}">¡Gracias por registrarte y confiar en nosotros y tu mascota!</h4>
+        <h2 th:text="#{auth.hero.subtitle1}">Explora productos</h2>
+		<h2 th:text="#{auth.hero.subtitle2}">hechos especialmente</h2>
+		<h2 th:text="#{auth.hero.subtitle3}">para tu mascota</h2>
+        <p th:text="#{auth.hero.subtitle4}">Descubre artículos únicos pensados para su bienestar.</p>
+        <button onclick="location.href='/products'" th:text="#{auth.hero.button}">Ver productos</button>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Se pueden agregar animaciones u otros comportamientos aquí.
+        });
+    </script>
+</body>
+
+</html>
+
