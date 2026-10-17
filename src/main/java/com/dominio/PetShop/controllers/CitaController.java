@@ -21,7 +21,7 @@ import com.dominio.PetShop.models.Cita;
 import com.dominio.PetShop.repository.CitaRepository;
 
 @Controller
-@RequestMapping("/products")
+@RequestMapping("/citas")
 public class CitaController {
 
     @Autowired
