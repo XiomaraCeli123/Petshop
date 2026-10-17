@@ -11,6 +11,15 @@ Permite administrar un catálogo de productos, registrar usuarios, gestionar cit
 - **Exportación de productos a PDF**
 - Interfaz disponible en **español, inglés y francés**
 
+## Capturas
+
+![Página principal](docs/inicio.png)
+![Lista de productos](docs/productos.png)
+![Crear producto](docs/crear.png)
+![Detalle del producto](docs/detalle.png)
+![PDF generado](docs/pdf.png)
+![Versión en inglés](docs/ingles.png)
+
 ## Tecnologías
 
 | Área | Tecnologías |
